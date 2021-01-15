@@ -1,0 +1,33 @@
+import random
+
+
+print('H A N G M A N')
+
+list_words = ['python', 'java', 'kotlin', 'javascript']
+word_random = random.choice(list_words)
+unknown = list(len(word_random) * "-")
+shown = "".join(unknown)
+life = 8
+
+def user_bravo(letter):
+    for i in range(len(word_random)):
+        if letter == word_random[i]:
+            unknown[i] = letter
+
+while life > 0:
+    print()
+    shown = "".join(unknown)
+    print(shown)
+    letter = input("Input a letter:")
+    if letter in word_random:
+        user_bravo(letter)
+        life -= 1
+    elif letter not in word_random:
+        shown = "".join(unknown)
+        print("That letter doesn't appear in the word")
+        print()
+        life -= 1
+
+print()
+print("""Thanks for playing!
+We'll see how well you did in the next stage""")
